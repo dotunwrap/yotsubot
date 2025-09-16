@@ -35,7 +35,7 @@ pub async fn reverify_active_users(ctx: Context<'_>, num_users: u32) -> Result<(
         }
 
         for member in &members {
-            if top_active_users.contains(&member.user.id) {
+            if member.user.bot || top_active_users.contains(&member.user.id) {
                 continue;
             }
 
